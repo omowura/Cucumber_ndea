@@ -1,0 +1,256 @@
+Feature: Test login functionality
+
+  Scenario: User should be able to login with valid credentials successfully [90m# homepageLogin.feature:3[0m
+    [32mGiven [0m[32mI am on the nopCommerce webpage[0m                                    [90m# homepageLogin.i_am_on_the_nopCommerce_webpage()[0m
+    [32mAnd [0m[32mI click on login button[0m                                              [90m# homepageLogin.i_click_on_login_button()[0m
+    [32mWhen [0m[32mI enter user email[0m                                                  [90m# homepageLogin.i_enter_user_email()[0m
+    [32mAnd [0m[32mI enter user password[0m                                                [90m# homepageLogin.i_enter_user_password()[0m
+    [32mAnd [0m[32mI click on the login[0m                                                 [90m# homepageLogin.i_click_on_the_login()[0m
+    [32mThen [0m[32mI should be able to login successfully[0m                              [90m# homepageLogin.i_should_be_able_to_login_successfully()[0m
+Feature: Test invalid login functionality
+
+  Scenario Outline: Invalid login credentials should return correct error message [90m# invalidLoginWithDataDriven.feature:3[0m
+    [36mGiven [0m[36mUser launches browser[0m
+    [36mAnd [0m[36mUser is on the homepage and click login button[0m
+    [36mWhen [0m[36mUser enters "<email>" and "<password>"[0m
+    [36mAnd [0m[36mUser clicks on the login button[0m
+    [36mThen [0m[36mCorrect "<errormessage>" should be returned[0m
+
+    Examples: 
+
+  Scenario Outline: Invalid login credentials should return correct error message [90m# invalidLoginWithDataDriven.feature:12[0m
+    [32mGiven [0m[32mUser launches browser[0m                                                   [90m# invalidLoginWithDataDriven.user_launches_browser()[0m
+    [31mAnd [0m[31mUser is on the homepage and click login button[0m                            [90m# invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button()[0m
+      [31morg.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+      from unknown error: unexpected command response
+        (Session info: chrome=103.0.5060.114)
+      Build info: version: '4.1.4', revision: '535d840ee2'
+      System info: host: 'LAPTOP-R890KMMG', ip: '192.168.1.97', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Command: [efb154a6be331571d5348368fd35fd43, clickElement {id=46a177f1-9da0-45c5-a9b1-f0185d6ebc3b}]
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\omowu\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59970}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59970/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+      Element: [[ChromeDriver: chrome on WINDOWS (efb154a6be331571d5348368fd35fd43)] -> xpath: //a[contains(text(),'Sign in')]]
+      Session ID: efb154a6be331571d5348368fd35fd43
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+      	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+      	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+      	at StepDefinitions.invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button(invalidLoginWithDataDriven.java:24)
+      	at ✽.And User is on the homepage and click login button(invalidLoginWithDataDriven.feature:5)
+      [0m
+    [36mWhen [0m[36mUser enters "[0m[36m[1miwa@gmail.com[0m[36m" and "[0m[36m[1mtesting[0m[36m"[0m                                [90m# invalidLoginWithDataDriven.user_enters_and(String,String)[0m
+    [36mAnd [0m[36mUser clicks on the login button[0m                                           [90m# invalidLoginWithDataDriven.user_clicks_on_the_login_button()[0m
+    [36mThen [0m[36mCorrect "[0m[36m[1mAuthentication failed.[0m[36m" should be returned[0m                      [90m# invalidLoginWithDataDriven.correct_should_be_returned(String)[0m
+
+  Scenario Outline: Invalid login credentials should return correct error message [90m# invalidLoginWithDataDriven.feature:13[0m
+    [32mGiven [0m[32mUser launches browser[0m                                                   [90m# invalidLoginWithDataDriven.user_launches_browser()[0m
+    [31mAnd [0m[31mUser is on the homepage and click login button[0m                            [90m# invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button()[0m
+      [31morg.openqa.selenium.WebDriverException: unknown error: unexpected command response
+        (Session info: chrome=103.0.5060.114)
+      Build info: version: '4.1.4', revision: '535d840ee2'
+      System info: host: 'LAPTOP-R890KMMG', ip: '192.168.1.97', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Command: [3d946f9a739a732032dc0606ba235bc7, clickElement {id=9c521c21-8069-473f-9a15-74718a171499}]
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\omowu\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60023}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60023/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+      Element: [[ChromeDriver: chrome on WINDOWS (3d946f9a739a732032dc0606ba235bc7)] -> xpath: //a[contains(text(),'Sign in')]]
+      Session ID: 3d946f9a739a732032dc0606ba235bc7
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+      	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+      	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+      	at StepDefinitions.invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button(invalidLoginWithDataDriven.java:24)
+      	at ✽.And User is on the homepage and click login button(invalidLoginWithDataDriven.feature:5)
+      [0m
+    [36mWhen [0m[36mUser enters "[0m[36m[1miwa+55@gmail.com[0m[36m" and "[0m[36m[1mtest[0m[36m"[0m                                [90m# invalidLoginWithDataDriven.user_enters_and(String,String)[0m
+    [36mAnd [0m[36mUser clicks on the login button[0m                                           [90m# invalidLoginWithDataDriven.user_clicks_on_the_login_button()[0m
+    [36mThen [0m[36mCorrect "[0m[36m[1mInvalid password.[0m[36m" should be returned[0m                           [90m# invalidLoginWithDataDriven.correct_should_be_returned(String)[0m
+
+  Scenario Outline: Invalid login credentials should return correct error message [90m# invalidLoginWithDataDriven.feature:14[0m
+    [32mGiven [0m[32mUser launches browser[0m                                                   [90m# invalidLoginWithDataDriven.user_launches_browser()[0m
+    [31mAnd [0m[31mUser is on the homepage and click login button[0m                            [90m# invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button()[0m
+      [31morg.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+      from unknown error: unexpected command response
+        (Session info: chrome=103.0.5060.114)
+      Build info: version: '4.1.4', revision: '535d840ee2'
+      System info: host: 'LAPTOP-R890KMMG', ip: '192.168.1.97', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Command: [8e9beb75f526a61751c8ac47c2108f72, clickElement {id=6d12a7f8-7c48-4507-b147-ec7a09d74796}]
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\omowu\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60092}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60092/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+      Element: [[ChromeDriver: chrome on WINDOWS (8e9beb75f526a61751c8ac47c2108f72)] -> xpath: //a[contains(text(),'Sign in')]]
+      Session ID: 8e9beb75f526a61751c8ac47c2108f72
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+      	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+      	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+      	at StepDefinitions.invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button(invalidLoginWithDataDriven.java:24)
+      	at ✽.And User is on the homepage and click login button(invalidLoginWithDataDriven.feature:5)
+      [0m
+    [36mWhen [0m[36mUser enters "[0m[36m[1m[0m[36m" and "[0m[36m[1mtesting[0m[36m"[0m                                             [90m# invalidLoginWithDataDriven.user_enters_and(String,String)[0m
+    [36mAnd [0m[36mUser clicks on the login button[0m                                           [90m# invalidLoginWithDataDriven.user_clicks_on_the_login_button()[0m
+    [36mThen [0m[36mCorrect "[0m[36m[1mAn email address required.[0m[36m" should be returned[0m                  [90m# invalidLoginWithDataDriven.correct_should_be_returned(String)[0m
+
+  Scenario Outline: Invalid login credentials should return correct error message [90m# invalidLoginWithDataDriven.feature:15[0m
+    [31mGiven [0m[31mUser launches browser[0m                                                   [90m# invalidLoginWithDataDriven.user_launches_browser()[0m
+      [31morg.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+      from disconnected: received Inspector.detached event
+        (Session info: chrome=103.0.5060.114)
+      Build info: version: '4.1.4', revision: '535d840ee2'
+      System info: host: 'LAPTOP-R890KMMG', ip: '192.168.1.97', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Command: [1150836aefd4048bf209a12545aa780c, get {url=http://automationpractice.com/index.php}]
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\omowu\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60150}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60150/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+      Session ID: 1150836aefd4048bf209a12545aa780c
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+      	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:330)
+      	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.to(RemoteWebDriver.java:1022)
+      	at StepDefinitions.invalidLoginWithDataDriven.user_launches_browser(invalidLoginWithDataDriven.java:17)
+      	at ✽.Given User launches browser(invalidLoginWithDataDriven.feature:4)
+      [0m
+    [36mAnd [0m[36mUser is on the homepage and click login button[0m                            [90m# invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button()[0m
+    [36mWhen [0m[36mUser enters "[0m[36m[1miwa+55@gmail.com[0m[36m" and "[0m[36m[1m[0m[36m"[0m                                    [90m# invalidLoginWithDataDriven.user_enters_and(String,String)[0m
+    [36mAnd [0m[36mUser clicks on the login button[0m                                           [90m# invalidLoginWithDataDriven.user_clicks_on_the_login_button()[0m
+    [36mThen [0m[36mCorrect "[0m[36m[1mPassword is required.[0m[36m" should be returned[0m                       [90m# invalidLoginWithDataDriven.correct_should_be_returned(String)[0m
+
+  Scenario Outline: Invalid login credentials should return correct error message [90m# invalidLoginWithDataDriven.feature:16[0m
+    [31mGiven [0m[31mUser launches browser[0m                                                   [90m# invalidLoginWithDataDriven.user_launches_browser()[0m
+      [31morg.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+      from disconnected: received Inspector.detached event
+        (Session info: chrome=103.0.5060.114)
+      Build info: version: '4.1.4', revision: '535d840ee2'
+      System info: host: 'LAPTOP-R890KMMG', ip: '192.168.1.97', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Command: [9ab23a72868108136110043dbcee7e48, get {url=http://automationpractice.com/index.php}]
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\omowu\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60187}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60187/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+      Session ID: 9ab23a72868108136110043dbcee7e48
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+      	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:330)
+      	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.to(RemoteWebDriver.java:1022)
+      	at StepDefinitions.invalidLoginWithDataDriven.user_launches_browser(invalidLoginWithDataDriven.java:17)
+      	at ✽.Given User launches browser(invalidLoginWithDataDriven.feature:4)
+      [0m
+    [36mAnd [0m[36mUser is on the homepage and click login button[0m                            [90m# invalidLoginWithDataDriven.user_is_on_the_homepage_and_click_login_button()[0m
+    [36mWhen [0m[36mUser enters "[0m[36m[1m[0m[36m" and "[0m[36m[1m[0m[36m"[0m                                                    [90m# invalidLoginWithDataDriven.user_enters_and(String,String)[0m
+    [36mAnd [0m[36mUser clicks on the login button[0m                                           [90m# invalidLoginWithDataDriven.user_clicks_on_the_login_button()[0m
+    [36mThen [0m[36mCorrect "[0m[36m[1mAn email address required.[0m[36m" should be returned[0m                  [90m# invalidLoginWithDataDriven.correct_should_be_returned(String)[0m
+Feature: Test login functionality for valid user
+
+  Scenario Outline: Verify login is successful with valid credentials [90m# loginWithDataDriven.feature:3[0m
+    [36mGiven [0m[36mbrowser is launched[0m
+    [36mAnd [0m[36muser is on the homepage[0m
+    [36mWhen [0m[36muser enters "<email>" and "<password>"[0m
+    [36mAnd [0m[36muser clicks on the login button[0m
+    [36mThen [0m[36muser should be able to navigate to the homepage[0m
+
+    Examples: 
+
+  Scenario Outline: Verify login is successful with valid credentials [90m# loginWithDataDriven.feature:12[0m
+    [31mGiven [0m[31mbrowser is launched[0m                                         [90m# loginWithDataDriven.browser_is_launched()[0m
+      [31morg.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+      from disconnected: received Inspector.detached event
+        (Session info: chrome=103.0.5060.114)
+      Build info: version: '4.1.4', revision: '535d840ee2'
+      System info: host: 'LAPTOP-R890KMMG', ip: '192.168.1.97', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Command: [78c46700c22b3812b329572c7db97eab, get {url=https://demo.nopcommerce.com/}]
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\omowu\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60212}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60212/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+      Session ID: 78c46700c22b3812b329572c7db97eab
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+      	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:330)
+      	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.to(RemoteWebDriver.java:1022)
+      	at StepDefinitions.loginWithDataDriven.browser_is_launched(loginWithDataDriven.java:18)
+      	at ✽.Given browser is launched(loginWithDataDriven.feature:4)
+      [0m
+    [36mAnd [0m[36muser is on the homepage[0m                                       [90m# loginWithDataDriven.user_is_on_the_homepage()[0m
+    [36mWhen [0m[36muser enters "[0m[36m[1msummer+2022a@gmail.com[0m[36m" and "[0m[36m[1mtesting123[0m[36m"[0m        [90m# loginWithDataDriven.user_enters_and(String,String)[0m
+    [36mAnd [0m[36muser clicks on the login button[0m                               [90m# loginWithDataDriven.user_clicks_on_the_login_button()[0m
+    [36mThen [0m[36muser should be able to navigate to the homepage[0m              [90m# loginWithDataDriven.user_should_be_able_to_navigate_to_the_homepage()[0m
+Feature: Register new user account
+
+  Scenario: User should be able to register new account                   [90m# registerNewUserAccount.feature:3[0m
+    [31mGiven [0m[31mI am on the nopCommerce homepage[0m                                [90m# registerNewUserAccount.i_am_on_the_nopCommerce_homepage()[0m
+      [31morg.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+      from disconnected: received Inspector.detached event
+        (Session info: chrome=103.0.5060.114)
+      Build info: version: '4.1.4', revision: '535d840ee2'
+      System info: host: 'LAPTOP-R890KMMG', ip: '192.168.1.97', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Command: [f244e73ab89142bf087ac69e9151e3ae, get {url=https://demo.nopcommerce.com/}]
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\omowu\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60235}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60235/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+      Session ID: f244e73ab89142bf087ac69e9151e3ae
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+      	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+      	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:330)
+      	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.to(RemoteWebDriver.java:1022)
+      	at StepDefinitions.registerNewUserAccount.i_am_on_the_nopCommerce_homepage(registerNewUserAccount.java:19)
+      	at ✽.Given I am on the nopCommerce homepage(registerNewUserAccount.feature:4)
+      [0m
+    [36mAnd [0m[36mI click on the register button[0m                                    [90m# registerNewUserAccount.i_click_on_the_register_button()[0m
+    [36mAnd [0m[36mI enter user personal details[0m                                     [90m# registerNewUserAccount.i_enter_user_personal_details()[0m
+    [36mWhen [0m[36mI enter new password, confirm password and click register button[0m [90m# registerNewUserAccount.i_enter_new_password_confirm_password_and_click_register_button()[0m
+    [36mThen [0m[36mI should be able to register new user account successfully[0m       [90m# registerNewUserAccount.i_should_be_able_to_register_new_user_account_successfully()[0m
