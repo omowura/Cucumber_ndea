@@ -16,7 +16,7 @@ INSTRUCTIONS
 
 3. Run Test
 - The test scripts are runned following these steps:
-- Run the registerNewUserAccountStatic.feature first after that use the TestRunner to run the entire scripts. This is because the all other feature files depend on the     static file
+- Run the registerNewUserAccountStatic.feature first after that use the TestRunner to run the entire scripts. This is because all other feature files depend on the         static file
 - Alternative, you can try to run the entire scripts without considering any particular script first using the command prompt:
   C:\Users\omowu\Automation Testing\QA_assignment>mvn clean test
   
